@@ -1,0 +1,377 @@
+/* =========================================
+   LANDING SECTION (dipakai di dalam home.html)
+   Tema: Forest Editorial
+   ========================================= */
+
+/* Kunci scroll sebelum user klik tombol */
+body.scroll-locked {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* ============ LANDING SECTION (FLEXBOX CENTERING) ============ */
+.landing-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    
+    /* GANTI BACKGROUND DI SINI */
+    background: linear-gradient(rgba(23, 44, 37, 0.85), rgba(23, 44, 37, 0.85)), url('bg-hero.png') center/cover no-repeat;
+    background-color: #172C25; /* Warna fallback jika gambar gagal dimuat */
+    
+    color: #F8F7F2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity, transform;
+}
+/* ============ AURORA GLOW ============ */
+.landing-aurora {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 80vw;
+    height: 70vh;
+    background: radial-gradient(
+        circle at center,
+        rgba(197, 138, 82, 0.3) 0%,
+        rgba(85, 122, 98, 0.15) 35%,
+        rgba(23, 44, 37, 0.05) 55%,
+        transparent 75%
+    );
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 1;
+    animation: landingBreathe 8s ease-in-out infinite alternate;
+}
+
+@keyframes landingBreathe {
+    0%   { transform: translate(-50%, -50%) scale(1);    opacity: 0.55; }
+    100% { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+}
+
+/* ============ GRID BACKGROUND ============ */
+.landing-grid {
+    position: absolute;
+    inset: 0;
+    background-size: 60px 60px;
+    background-image:
+        linear-gradient(to right,  rgba(197, 138, 82, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(197, 138, 82, 0.05) 1px, transparent 1px);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* ============ GIANT BACKGROUND TEXT ============ */
+.landing-giant {
+    position: absolute;
+    bottom: -8vh;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28vw;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 0.75;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(197, 138, 82, 0.15);
+    background: linear-gradient(180deg, rgba(197, 138, 82, 0.15) 0%, transparent 60%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 1;
+    animation: giantFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes giantFloat {
+    0%   { transform: translate(-50%, 0); }
+    100% { transform: translate(-50%, -14px); }
+}
+
+/* ============ MARQUEE ============ */
+.landing-marquee-wrap {
+    position: absolute;
+    top: 44px;
+    left: -5%;
+    width: 110%;
+    overflow: hidden;
+    transform: rotate(-2deg);
+    border-top: 1px solid rgba(197, 138, 82, 0.25);
+    border-bottom: 1px solid rgba(197, 138, 82, 0.25);
+    background: rgba(23, 44, 37, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 14px 0;
+    z-index: 10;
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+}
+
+.landing-marquee {
+    display: flex;
+    width: max-content;
+    animation: marqueeSlide 42s linear infinite;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    padding: 0 24px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(248, 247, 242, 0.7);
+    white-space: nowrap;
+}
+
+.marquee-item .star {
+    color: #C58A52;
+    font-size: 14px;
+    filter: drop-shadow(0 0 6px rgba(197, 138, 82, 0.8));
+}
+
+@keyframes marqueeSlide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-33.333%); }
+}
+
+/* ============ KONTEN TENGAH (FIX: no absolute positioning) ============ */
+.landing-center {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 960px;
+    padding: 0 24px;
+    text-align: center;
+    animation: contentIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes contentIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.landing-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.5rem, 7vw, 6rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 16px;
+    color: #F8F7F2;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 40px rgba(197, 138, 82, 0.3);
+}
+
+.landing-subtitle {
+    font-size: clamp(11px, 1.3vw, 14px);
+    color: #D8E1D4;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 36px;
+    text-shadow: 0 0 20px rgba(85, 122, 98, 0.3);
+}
+
+/* ============ TOMBOL UTAMA ============ */
+.glass-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(145deg, rgba(197, 138, 82, 0.15) 0%, rgba(85, 122, 98, 0.05) 100%);
+    border: 1px solid rgba(197, 138, 82, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 16px 36px;
+    color: #F8F7F2;
+    font-weight: 700;
+    font-size: 15px;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition:
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.4s,
+        border-color 0.4s,
+        box-shadow 0.4s,
+        color 0.3s;
+    box-shadow:
+        0 10px 30px -10px rgba(0, 0, 0, 0.6),
+        inset 0 1px 1px rgba(197, 138, 82, 0.15);
+    position: relative;
+    z-index: 1;
+}
+
+.glass-pill:hover {
+    background: linear-gradient(145deg, rgba(197, 138, 82, 0.25) 0%, rgba(85, 122, 98, 0.1) 100%);
+    border-color: rgba(197, 138, 82, 0.6);
+    color: #FFFFFF;
+    box-shadow:
+        0 20px 45px -10px rgba(197, 138, 82, 0.35),
+        inset 0 1px 1px rgba(197, 138, 82, 0.3);
+}
+
+.main-cta {
+    font-size: 15px;
+    padding: 18px 42px;
+    background: linear-gradient(145deg, rgba(197, 138, 82, 0.4) 0%, rgba(85, 122, 98, 0.2) 100%);
+    border-color: rgba(197, 138, 82, 0.5);
+    color: #FFFFFF;
+    font-weight: 800;
+    box-shadow:
+        0 15px 40px -12px rgba(197, 138, 82, 0.5),
+        inset 0 1px 2px rgba(248, 247, 242, 0.25);
+}
+
+.main-cta:hover {
+    background: linear-gradient(145deg, #C58A52 0%, #557A62 100%);
+    border-color: #F8F7F2;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 25px 60px -12px rgba(197, 138, 82, 0.75),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.main-cta .arrow {
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    font-size: 18px;
+}
+
+.main-cta:hover .arrow { transform: translateY(4px); }
+
+/* ============ 3 KARTU SHORTCUT ============ */
+.landing-shortcuts {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.shortcut-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 26px;
+    min-width: 130px;
+    background: linear-gradient(145deg, rgba(85, 122, 98, 0.07) 0%, rgba(23, 44, 37, 0.2) 100%);
+    border: 1px solid rgba(85, 122, 98, 0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    color: #D8E1D4;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 12px;
+    transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.35s,
+        border-color 0.35s,
+        box-shadow 0.35s;
+    box-shadow:
+        0 8px 24px -10px rgba(0, 0, 0, 0.5),
+        inset 0 1px 1px rgba(197, 138, 82, 0.1);
+    cursor: pointer;
+}
+
+.shortcut-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(197, 138, 82, 0.55);
+    background: linear-gradient(145deg, rgba(197, 138, 82, 0.15) 0%, rgba(85, 122, 98, 0.05) 100%);
+    box-shadow:
+        0 20px 40px -12px rgba(197, 138, 82, 0.3),
+        inset 0 1px 1px rgba(197, 138, 82, 0.25);
+    color: #FFFFFF;
+}
+
+.shortcut-card .label {
+    letter-spacing: 0.1em;
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+/* ============ BOTTOM BAR ============ */
+.landing-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px 36px;
+    z-index: 20;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(216, 225, 212, 0.6);
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.landing-bottom .copyright { pointer-events: auto; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 720px) {
+    .landing-marquee-wrap { top: 30px; padding: 12px 0; }
+    .marquee-item { gap: 30px; padding: 0 18px; font-size: 11px; letter-spacing: 0.22em; }
+
+    .landing-title { margin-bottom: 12px; }
+    .landing-subtitle { letter-spacing: 0.25em; margin-bottom: 28px; }
+
+    .main-cta { padding: 14px 30px; font-size: 13px; }
+    .landing-shortcuts { gap: 8px; margin-top: 24px; }
+    .shortcut-card { min-width: 95px; padding: 12px 14px; border-radius: 8px; }
+    .shortcut-card .label { font-size: 10px; }
+
+    .landing-bottom { padding: 14px 18px; }
+    .landing-bottom .copyright { font-size: 10px; }
+
+    .landing-giant { font-size: 40vw; bottom: -4vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .landing-aurora,
+    .landing-giant,
+    .landing-marquee {
+        animation: none !important;
+    }
+}
+
+/* =========================================
+   STATE: SETELAH USER MASUK HOME
+   ========================================= */
+body.entered .landing-section {
+    display: none !important;
+}
+
+/* Home content fade in saat user masuk */
+@keyframes homeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.entered .navbar {
+    animation: navFadeIn 0.5s ease both;
+}
+
+@keyframes navFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

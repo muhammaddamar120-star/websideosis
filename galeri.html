@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri Dokumentasi — OSIS Qonqueror Ventidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="coverflow.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html"logo">
+                <img src="logo.png" alt="Logo OSIS" class="logo-img" onerror="this.style.display='none'">
+                <div class="logo-text-wrap">
+                    <span class="logo-text">Qonqueror Ventidos</span>
+                    <span class="logo-sub">SMAIT Al-Hikmah Boyolali</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#tentang">Tentang</a></li>
+                <li><a href="index.html#berita">Berita</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+                <li><a href="galeri.html" class="active">Galeri</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="page-header" style="padding: 80px 0 20px;">
+        <div class="container" data-aos="fade-up">
+            <span class="section-badge">✦ DOKUMENTASI</span>
+            <h1>Galeri <span class="highlight">Kegiatan</span></h1>
+            <p>Klik pada foto untuk melihat detail acara.</p>
+        </div>
+    </section>
+
+    <!-- COVERFLOW CAROUSEL -->
+    <section id="coverflowRoot" class="cf-wrapper"></section>
+
+    <!-- MODAL POPUP -->
+    <div class="galeri-modal" id="galeriModal">
+        <div class="galeri-modal-content">
+            <button class="galeri-modal-close" id="galeriModalClose">&times;</button>
+            <img class="galeri-modal-img" id="galeriModalImg" src="" alt="">
+            <div class="galeri-modal-body">
+                <h3 id="galeriModalTitle"></h3>
+                <p id="galeriModalDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Logo" class="footer-logo" onerror="this.style.display='none'">
+                    <div>
+                        <h3>Qonqueror Ventidos</h3>
+                        <p>SMAIT Al-Hikmah Boyolali</p>
+                    </div>
+                </div>
+                <p class="footer-desc">Organisasi Siswa Intra Sekolah yang berkomitmen mencetak generasi pemimpin berkarakter.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="index.html#tentang">Tentang</a></li>
+                    <li><a href="index.html#berita">Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li>📍 Boyolali, Jawa Tengah</li>
+                    <li>✉️ osis@smaitalhikmah.sch.id</li>
+                    <li>📞 0812-3456-7890</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ikuti Kami</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="tahun"></span> OSIS Qonqueror Ventidos — SMAIT Al-Hikmah Boyolali. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Kembali ke atas">↑</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>AOS.init();</script>
+    <script src="script.js"></script>
+    <script src="coverflow.js"></script>
+    <script>
+        // Modal logic
+        const modal = document.getElementById("galeriModal");
+        const modalClose = document.getElementById("galeriModalClose");
+        if (modalClose) {
+            modalClose.addEventListener("click", () => modal.classList.remove("is-open"));
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) modal.classList.remove("is-open");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak — OSIS Qonqueror Ventidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo OSIS" class="logo-img" onerror="this.style.display='none'">
+                <div class="logo-text-wrap">
+                    <span class="logo-text">Qonqueror Ventidos</span>
+                    <span class="logo-sub">SMAIT Al-Hikmah Boyolali</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#tentang">Tentang</a></li>
+                <li><a href="index.html#berita">Berita</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="kontak.html" class="active">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- KONTEN KONTAK -->
+    <section class="halaman-kontak">
+        <div class="kontak-wrap">
+            <form id="formKontak" class="kotak-masukan" action="https://formspree.io/f/mgavqjjv" method="POST" novalidate>
+
+                <!-- HEADER -->
+                <header class="kotak-header">
+                    <h2>Kotak Masukan!</h2>
+                    <p>Masukan kritik dan saranmu, atau jika ingin mendaftar OSIS bisa mengisi formulir yang ada di bawah ini.</p>
+                </header>
+
+                <!-- GRID 2 KOLOM -->
+                <div class="kotak-grid">
+
+                    <!-- NAMA -->
+                    <div class="kotak-field">
+                        <label for="nama">Nama</label>
+                        <input type="text" id="nama" name="nama" placeholder="Nama lengkap" required>
+                    </div>
+
+                    <!-- TUJUAN -->
+                    <div class="kotak-field">
+                        <label for="tujuan">Tujuan</label>
+                        <select id="tujuan" name="tujuan" required>
+                            <option value="" disabled selected>Pilih tujuan...</option>
+                            <option value="Kritik & Saran">Kritik &amp; Saran</option>
+                            <option value="Mendaftar Anggota OSIS">Mendaftar Anggota OSIS</option>
+                        </select>
+                    </div>
+
+                    <!-- ALAMAT EMAIL (full width) -->
+                    <div class="kotak-field kotak-field--full">
+                        <label for="email">Alamat E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="contoh@email.com" required autocomplete="email">
+                    </div>
+
+                    <!-- KELAS -->
+                    <div class="kotak-field">
+                        <label for="kelas">Kelas</label>
+                        <select id="kelas" name="kelas" required>
+                            <option value="" disabled selected>Pilih kelas...</option>
+                            <option value="X-1">X-1</option>
+                            <option value="X-2">X-2</option>
+                            <option value="XI-1 MIPA">XI-1 MIPA</option>
+                            <option value="XI-2 MIPA">XI-2 MIPA</option>
+                            <option value="XI-1 IPS">XI-1 IPS</option>
+                            <option value="XI-2 IPS">XI-2 IPS</option>
+                        </select>
+                    </div>
+
+                    <!-- ANGGOTA OSIS (opsional) -->
+                    <div class="kotak-field">
+                        <label for="anggota">
+                            <span class="label-opsional">(opsional)</span> Anggota OSIS
+                        </label>
+                        <input type="text" id="anggota" name="anggota" placeholder="Jabatan / divisi (jika sudah tergabung)">
+                    </div>
+
+                    <!-- ALASAN MASUK OSIS (full width) -->
+                    <div class="kotak-field kotak-field--full">
+                        <label for="alasan">Alasan Masuk OSIS &amp; Kelebihan / Kekuranganmu</label>
+                        <textarea id="alasan" name="alasan" rows="4" placeholder="Tuliskan alasan dan gambaran dirimu..."></textarea>
+                    </div>
+
+                    <!-- MASUKAN KRITIK & SARAN (full width) -->
+                    <div class="kotak-field kotak-field--full">
+                        <label for="pesan">Masukan Kritik &amp; Saran</label>
+                        <textarea id="pesan" name="pesan" rows="4" placeholder="Tulis kritik dan saranmu di sini..." required></textarea>
+                    </div>
+
+                </div>
+
+                <!-- CHECKBOX -->
+                <label class="kotak-checkbox">
+                    <input type="checkbox" id="simpan" name="simpan" value="ya">
+                    <span>Simpan data ini untuk pengiriman berikutnya</span>
+                </label>
+
+                <!-- TOMBOL KIRIM -->
+                <button type="submit" class="kotak-submit">
+                    Kirim Pesan <span aria-hidden="true">→</span>
+                </button>
+
+            </form>
+
+            <!-- PESAN SUKSES -->
+            <div id="pesanSukses" class="pesan-sukses">
+                ✅ Pesanmu sudah terkirim! Kami akan segera membalas.
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Logo" class="footer-logo" onerror="this.style.display='none'">
+                    <div>
+                        <h3>Qonqueror Ventidos</h3>
+                        <p>SMAIT Al-Hikmah Boyolali</p>
+                    </div>
+                </div>
+                <p class="footer-desc">Organisasi Siswa Intra Sekolah yang berkomitmen mencetak generasi pemimpin berkarakter.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="index.html#tentang">Tentang</a></li>
+                    <li><a href="index.html#berita">Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li>📍 Boyolali, Jawa Tengah</li>
+                    <li>✉️ osis@smaitalhikmah.sch.id</li>
+                    <li>📞 0812-3456-7890</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ikuti Kami</h4>
+                <ul>
+                    <li><a href="#">Instagram @qonqueror.ventidos</a></li>
+                    <li><a href="#">TikTok @qonqueror.ventidos</a></li>
+                    <li><a href="#">YouTube OSIS Al-Hikmah</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- HOVER TEXT EFFECT -->
+        <div class="footer-hover-wrap">
+            <svg id="footerHoverSvg" class="footer-hover-svg" width="100%" height="100%" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="footerTextGradient" gradientUnits="userSpaceOnUse" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#4ade80" />
+                        <stop offset="35%" stop-color="#22c55e" />
+                        <stop offset="70%" stop-color="#16a34a" />
+                        <stop offset="100%" stop-color="#052e16" />
+                    </linearGradient>
+                    <radialGradient id="footerRevealMask" gradientUnits="userSpaceOnUse" r="20%" cx="50%" cy="50%">
+                        <stop offset="0%" stop-color="white" />
+                        <stop offset="100%" stop-color="black" />
+                    </radialGradient>
+                    <mask id="footerTextMask">
+                        <rect x="0" y="0" width="100%" height="100%" fill="url(#footerRevealMask)" />
+                    </mask>
+                </defs>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke-width="0.3" stroke="#22c55e" fill="transparent" font-family="Helvetica, Arial, sans-serif" font-size="80" font-weight="900" class="fh-layer fh-outline">OSIS</text>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke-width="0.4" stroke="#4ade80" fill="transparent" font-family="Helvetica, Arial, sans-serif" font-size="80" font-weight="900" class="fh-layer fh-draw">OSIS</text>
+                <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" stroke="url(#footerTextGradient)" stroke-width="0.4" mask="url(#footerTextMask)" fill="transparent" font-family="Helvetica, Arial, sans-serif" font-size="80" font-weight="900" class="fh-layer fh-fill">OSIS</text>
+            </svg>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="tahun"></span> OSIS Qonqueror Ventidos — SMAIT Al-Hikmah Boyolali. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Kembali ke atas">↑</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 700, disable: 'phone' });</script>
+    <script src="script.js"></script>
+</body>
+</html>

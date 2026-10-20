@@ -1,0 +1,378 @@
+/* =========================================
+   ORBITAL TIMELINE — Bidang OSIS (Forest Theme)
+   ========================================= */
+.orbital-section {
+    padding: 100px 0 60px;
+    background: linear-gradient(135deg, #172C25 0%, #1F3A2D 50%, #604B35 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.orbital-section .section-head h2 {
+    color: #F8F7F2;
+}
+
+.orbital-section .section-desc {
+    color: #D8E1D4;
+}
+
+.orbital-section .section-badge {
+    background: rgba(197, 138, 82, 0.15);
+    color: #C58A52;
+}
+
+/* Wadah Utama (Diperbesar tingginya) */
+.orbital-root {
+    position: relative;
+    width: 100%;
+    height: 720px; /* Lebih tinggi agar ring besar muat */
+    margin-top: 20px;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.orbital-orbit {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+/* ====== CORE (Pusat) ====== */
+.orbital-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C58A52 0%, #557A62 100%);
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    box-shadow: 0 0 60px rgba(197, 138, 82, 0.5);
+}
+
+.orbital-center::before,
+.orbital-center::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(197, 138, 82, 0.35);
+    pointer-events: none;
+}
+.orbital-center::before {
+    width: 90px; height: 90px;
+    animation: orbitalPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.orbital-center::after {
+    width: 110px; height: 110px;
+    border-color: rgba(197, 138, 82, 0.15);
+    animation: orbitalPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes orbitalPing {
+    75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+.orbital-center-dot {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: rgba(248, 247, 242, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* ====== RING / GARIS EDAR (BARU) ====== */
+.orbital-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ring Luar (Tempat Node Berputar) */
+.ring-outer {
+    width: 560px;
+    height: 560px;
+    border: 1px dashed rgba(197, 138, 82, 0.25);
+}
+
+/* Ring Tengah (Dekorasi) */
+.ring-middle {
+    width: 400px;
+    height: 400px;
+    border: 1px solid rgba(85, 122, 98, 0.2);
+}
+
+/* Ring Dalam (Dekorasi) */
+.ring-inner {
+    width: 260px;
+    height: 260px;
+    border: 1px dotted rgba(197, 138, 82, 0.2);
+}
+
+/* Titik-titik dekoratif di ring tengah */
+.orbital-ring::before,
+.orbital-ring::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #C58A52;
+    box-shadow: 0 0 10px #C58A52;
+}
+.ring-middle::before { top: 10%; left: 20%; }
+.ring-middle::after { bottom: 15%; right: 25%; }
+.ring-inner::before { top: 50%; left: -3px; }
+.ring-inner::after { bottom: 50%; right: -3px; }
+
+/* ====== NODE ====== */
+.orbital-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    transition: opacity 0.4s ease;
+    will-change: transform;
+}
+
+.orbital-node-icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #172C25;
+    color: #C58A52;
+    border: 2px solid rgba(197, 138, 82, 0.45);
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    font-size: 20px;
+    z-index: 2;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.orbital-node-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.orbital-node:hover .orbital-node-icon {
+    border-color: #C58A52;
+    background: rgba(197, 138, 82, 0.1);
+    transform: scale(1.1);
+}
+
+.orbital-node.active .orbital-node-icon {
+    background: #C58A52;
+    color: #172C25;
+    border-color: #F8F7F2;
+    box-shadow: 0 0 35px rgba(197, 138, 82, 0.8);
+    transform: scale(1.4);
+}
+
+.orbital-node-title {
+    position: absolute;
+    top: 58px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: rgba(248, 247, 242, 0.65);
+    text-transform: uppercase;
+    transition: all 0.3s;
+    pointer-events: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.orbital-node.active .orbital-node-title {
+    color: #F8F7F2;
+    transform: translateX(-50%) scale(1.15);
+}
+
+.orbital-node-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(197, 138, 82, 0.3) 0%, transparent 70%);
+    pointer-events: none;
+    animation: orbitalPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes orbitalPulse {
+    0%, 100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.5; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* ====== CARD ====== */
+.orbital-card {
+    position: absolute;
+    width: 300px;
+    background: rgba(23, 44, 37, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 138, 82, 0.4);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(197, 138, 82, 0.1);
+    z-index: 500;
+    cursor: default;
+    animation: orbitalCardIn 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes orbitalCardIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(10px) scale(0.96); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+.orbital-card-arrow {
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: rgba(23, 44, 37, 0.98);
+    border-top: 1px solid rgba(197, 138, 82, 0.4);
+    border-left: 1px solid rgba(197, 138, 82, 0.4);
+}
+
+.orbital-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 8px;
+}
+
+.orbital-badge {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    background: #C58A52;
+    color: #172C25;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.orbital-card-date {
+    font-size: 11px;
+    color: rgba(248, 247, 242, 0.5);
+    font-family: ui-monospace, Menlo, monospace;
+    white-space: nowrap;
+}
+
+.orbital-card h3 {
+    font-size: 15px;
+    font-weight: 800;
+    color: #F8F7F2;
+    margin-bottom: 8px;
+    letter-spacing: -0.2px;
+    line-height: 1.3;
+}
+
+.orbital-card p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: rgba(248, 247, 242, 0.75);
+    margin-bottom: 16px;
+}
+
+.orbital-energy {
+    padding-top: 12px;
+    border-top: 1px solid rgba(197, 138, 82, 0.15);
+}
+
+.orbital-energy-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: rgba(248, 247, 242, 0.65);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.orbital-energy-bar {
+    height: 5px;
+    background: rgba(197, 138, 82, 0.12);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.orbital-energy-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #C58A52 0%, #F8F7F2 100%);
+    border-radius: 999px;
+    transition: width 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    box-shadow: 0 0 12px rgba(197, 138, 82, 0.6);
+}
+
+.orbital-card-footer {
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(197, 138, 82, 0.15);
+}
+
+.orbital-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    background: rgba(197, 138, 82, 0.15);
+    border: 1px solid rgba(197, 138, 82, 0.45);
+    border-radius: 999px;
+    color: #C58A52;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+}
+
+.orbital-more-btn:hover {
+    background: #C58A52;
+    color: #172C25;
+    border-color: #C58A52;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px -6px rgba(197, 138, 82, 0.55);
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+    .orbital-root { height: 550px; }
+    
+    /* Perkecil ring di HP */
+    .ring-outer { width: 320px; height: 320px; }
+    .ring-middle { width: 220px; height: 220px; }
+    .ring-inner { width: 120px; height: 120px; }
+    
+    .orbital-center { width: 56px; height: 56px; }
+    .orbital-center-dot { width: 24px; height: 24px; }
+    .orbital-node-icon { width: 40px; height: 40px; font-size: 16px; }
+    .orbital-node-title { font-size: 9px; top: 48px; letter-spacing: 0.08em; }
+    .orbital-card { width: 260px; padding: 16px; }
+    .orbital-card h3 { font-size: 14px; }
+    .orbital-card p { font-size: 12px; }
+}

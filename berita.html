@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelantikan Ketua OSIS - Qonqueror Ventidos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="berita.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Logo OSIS" class="logo-img" onerror="this.style.display='none'">
+                <div class="logo-text-wrap">
+                    <span class="logo-text">Qonqueror Ventidos</span>
+                    <span class="logo-sub">SMAIT Al-Hikmah Boyolali</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="menu" id="menu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="index.html#tentang">Tentang</a></li>
+                <li><a href="berita.html" class="active">Berita</a></li>
+                <li><a href="profil.html">Profil</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- =========================================
+         SCROLL EXPANSION HERO (Video Interaktif)
+         ========================================= -->
+    <div class="scroll-wrapper">
+        <section class="expand-hero" id="expandHero">
+            <!-- Background Foto Bersama -->
+            <div class="expand-bg" id="expandBg" style="background-image: url('bg-hero.png');"></div>
+            
+            <div class="expand-content">
+                <!-- Teks Atas -->
+                <h1 class="expand-title top" id="titleTop">PELANTIKAN</h1>
+                
+                <!-- Video -->
+                <div class="expand-media" id="expandMedia">
+                    <video src="pelantikan.mp4" autoplay muted loop playsinline></video>
+                </div>
+                
+                <!-- Teks Bawah -->
+                <h1 class="expand-title bottom" id="titleBottom">KETUA OSIS</h1>
+                
+                <!-- Subtitle -->
+                <p class="expand-subtitle" id="expandSubtitle">MASA BAKTI 2026 - 2027</p>
+            </div>
+
+            <!-- Indikator Scroll -->
+            <div class="scroll-hint" id="scrollHint">
+                <span>Scroll untuk membuka</span>
+                <div class="mouse"><div class="wheel"></div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- =========================================
+         KONTEN BAWAH (About & Berita)
+         ========================================= -->
+    <div class="berita-container" id="beritaContainer">
+        
+        <!-- ABOUT SECTION -->
+        <section class="about-section container">
+            <div class="about-content">
+                <h2 class="about-title">Pelantikan Pengurus OSIS</h2>
+                <p class="about-text">
+                    Ini adalah momen bersejarah bagi SMAIT Al-Hikmah Boyolali. Video di atas menampilkan prosesi pelantikan Ketua OSIS terpilih untuk masa bakti 2026-2027. Sebuah tongkat estafet kepemimpinan telah diserahkan, membawa semangat baru untuk berkarya, berinovasi, dan menginspirasi seluruh warga sekolah.
+                </p>
+            </div>
+        </section>
+
+        <!-- BERITA LAINNYA -->
+        <section class="news-list container">
+            <h2 class="section-title">Kabar Terbaru Lainnya</h2>
+            <div class="grid-berita" id="daftarBerita">
+                <!-- Akan di-render oleh script.js -->
+            </div>
+        </section>
+    </div>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Logo" class="footer-logo" onerror="this.style.display='none'">
+                    <div>
+                        <h3>Qonqueror Ventidos</h3>
+                        <p>SMAIT Al-Hikmah Boyolali</p>
+                    </div>
+                </div>
+                <p class="footer-desc">Organisasi Siswa Intra Sekolah yang berkomitmen mencetak generasi pemimpin berkarakter.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Menu Cepat</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="index.html#tentang">Tentang</a></li>
+                    <li><a href="berita.html">Berita</a></li>
+                    <li><a href="kontak.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontak</h4>
+                <ul>
+                    <li>📍 Boyolali, Jawa Tengah</li>
+                    <li>✉️ osis@smaitalhikmah.sch.id</li>
+                    <li>📞 0812-3456-7890</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Ikuti Kami</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">TikTok</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="tahun"></span> OSIS Qonqueror Ventidos — SMAIT Al-Hikmah Boyolali. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="backToTop" title="Kembali ke atas">↑</button>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 500, disable: 'phone' });</script>
+    <script src="script.js"></script>
+    <script src="berita.js"></script>
+</body>
+</html>
